@@ -1,0 +1,54 @@
+li {
+    list-style: none;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 60px;
+}
+
+p {
+    font-size: 32px;    
+    color:black;
+    font-family: sans-serif;
+    display: inline;  
+    margin: 0 10px 0 0;    
+}
+
+.playerCode {    
+    width: 55%;
+    margin: 10px 25px 5px 10px;    
+    border: 1px solid black;
+    border-radius: 15px;    
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.playerCode span {    
+    height: 30px;
+    width: 30px;
+    display: inline-block;    
+    border-radius: 50%;
+    border: 1px solid white;
+    margin: 10px 10px;    
+}
+
+.resultCode{
+    width: 25%;
+    margin: 20px 35px 15px 10px;
+    padding:10px;
+    border: 1px solid black;
+    border-radius: 15px;    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.resultCode span {    
+    height: 10px;
+    width: 10px;
+    display: inline-block;    
+    border-radius: 50%;
+    border: 1px solid white;
+    margin: 5px 5px;    
+}
