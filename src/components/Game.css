@@ -1,0 +1,131 @@
+button.newGame {
+    height: 70px;
+    width: 70px;
+    position: absolute;
+    right: 60px;
+    top: 20px;
+    font-size: 20px;
+    font-family: sans-serif;        
+}
+
+main {
+    width: 600px;
+    height: 1200px;
+}
+
+header {
+    height: 50px;
+    width: 330px;
+    position: absolute;
+    color:white;
+    background-color:#004c4c;
+    margin: 30px auto 20px 30px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 30px;
+    font-family: sans-serif;   
+    border: 1px solid white; 
+    border-radius: 10px;
+}
+
+ul {
+    top: 100px;
+    height: 900px;
+    background-color: #006666;
+    position: absolute;
+    width: 100%;
+}
+
+.selectedColor{
+    background-color: red;
+    color:white;
+    font-weight: bold;
+    width: 100%;
+    height: 35px;
+    text-align: center;        
+    bottom: 110px;
+    position: absolute;    
+    line-height: 2;  
+    letter-spacing: 1px;  
+    text-shadow: 1px 1px 0 #000,
+    -1px 1px 0 #000,
+    1px -1px 0 #000,
+    -1px -1px 0 #000,
+    0px 1px 0 #000,
+    0px -1px 0 #000,
+    -1px 0px 0 #000,
+    1px 0px 0 #000,
+    2px 2px 0 #000,
+    -2px 2px 0 #000,
+    2px -2px 0 #000,
+    -2px -2px 0 #000,
+    0px 2px 0 #000,
+    0px -2px 0 #000,
+    -2px 0px 0 #000,
+    2px 0px 0 #000,
+    1px 2px 0 #000,
+    -1px 2px 0 #000,
+    1px -2px 0 #000,
+    -1px -2px 0 #000,
+    2px 1px 0 #000,
+    -2px 1px 0 #000,
+    2px -1px 0 #000,
+    -2px -1px 0 #000;
+}
+
+.pickColor {    
+    position: absolute;
+    bottom: 40px;
+    margin-left: 25px;
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 0px 10px;
+}
+
+.pickColor span{
+    height: 25px;
+    width: 25px;
+    display: inline-block;    
+    border-radius: 50%;
+    border: 1px solid white;
+    margin: 10px 8px;    
+}
+
+button.checkRound {
+    position: absolute;
+    bottom: 45px;
+    right: 70px;
+    width: 90px;
+    height: 40px;
+}
+
+.yellow {
+    background-color: yellow;    
+}
+.red {
+    background-color: red;    
+}
+
+.green {
+    background-color: green;    
+}
+
+.blue {
+    background-color: blue;    
+}
+
+.white {
+    background-color: white;    
+}
+
+.orange {
+    background-color: orange;    
+}
+
+.gray {
+    background-color: gray;    
+}
+
+.pink {
+    background-color: pink;    
+}
