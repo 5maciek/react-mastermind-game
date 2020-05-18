@@ -71,7 +71,17 @@ class Game extends React.Component {
         selectedColor: 'yellow',
         rounds: initialRounds,
     }
-        
+    
+    RandomSecretCode = () => {
+        const secretCode = [];
+        const colors = ['yellow', 'red', 'green', 'blue', 'white', 'orange', 'gray', 'pink'];
+        for (let i = 0; i < 5; i++) {
+            secretCode.push(colors[Math.floor(Math.random() * 5)]);
+        }
+        console.log(secretCode);
+        return secretCode;
+    }
+    
     handleChangeSelectedColor = (event) => {
         document.querySelector('div.selectedColor').className = `selectedColor ${event.target.className}`;
         this.setState({
@@ -80,10 +90,11 @@ class Game extends React.Component {
     }
 
     handleNewGame = () => {
-        if (window.confirm('Are you sure to start a new game?')) {            
+        if (window.confirm('Are you sure to start a new game?')) {          
+            const secretCode = this.RandomSecretCode();
             this.setState({
                 currentRound: 1,
-                secretCode: null,
+                secretCode: secretCode,
                 rounds: initialRounds,
             });
         }
