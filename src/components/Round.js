@@ -1,27 +1,26 @@
 import React from 'react';
-import './Round.css';
+import './Round.scss';
 
 function Round(props) {
     const { id, playerCode, resultCode } = props.round;
 
     return (
         <li className="round">
-            <div className="playerCode">
-                <p>{id}.</p>
+            <div className="playerRoundCode">
+                <p className="roundNumber">{id}.</p>
                 <span></span>
                 <span></span>
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
-            <div className="resultCode">
+            <div className="resultRoundCode">
                 <span></span>
                 <span></span>
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
-
         </li>
     );
 }

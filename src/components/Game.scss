@@ -1,0 +1,137 @@
+header {
+    display: flex;    
+    justify-content: space-between;
+    align-items: baseline;
+
+    p {    
+        width: 330px;
+        display: inline-block;
+        background-color:#004c4c;
+        color:white;        
+        margin: 15px auto 15px 10px;
+        padding: 5px 0;
+        text-align: center;
+        line-height: 40px;
+        font-size: 25px;
+        font-family: sans-serif;   
+        border: 1px solid white; 
+        border-radius: 10px;
+    }
+
+    button.newGame {
+        height: 35px;
+        width: 165px;    
+        display: inline-block;
+        margin: 20px auto 0 0;        
+        font-size: 20px;
+        font-family: sans-serif; 
+    }
+}
+
+main {
+    width: 100%;
+    height: 680px;
+    overflow: hidden;
+    background-color: #006666;    
+
+    ul {        
+        width: 100%;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}
+
+footer {
+    display: flex;
+    flex-wrap: wrap;    
+    align-items: center;
+
+    .selectedColor{
+        width: 100%;
+        height: 30px;        
+        border-top: 2px solid black;
+        border-bottom: 2px solid black;        
+        color:white;
+        font-weight: bold;                
+        text-align: center;               
+        line-height: 1.6;  
+        letter-spacing: 1px;  
+        text-shadow: 1px 1px 0 #000,
+        -1px 1px 0 #000,
+        1px -1px 0 #000,
+        -1px -1px 0 #000,
+        0px 1px 0 #000,
+        0px -1px 0 #000,
+        -1px 0px 0 #000,
+        1px 0px 0 #000,
+        2px 2px 0 #000,
+        -2px 2px 0 #000,
+        2px -2px 0 #000,
+        -2px -2px 0 #000,
+        0px 2px 0 #000,
+        0px -2px 0 #000,
+        -2px 0px 0 #000,
+        2px 0px 0 #000,
+        1px 2px 0 #000,
+        -1px 2px 0 #000,
+        1px -2px 0 #000,
+        -1px -2px 0 #000,
+        2px 1px 0 #000,
+        -2px 1px 0 #000,
+        2px -1px 0 #000,
+        -2px -1px 0 #000;
+    }
+
+    .pickColor {                     
+        width: 330px;  
+        margin: 10px;
+        display: inline-block;
+        border: 1px solid black;        
+        border-radius: 15px;
+        padding: 0px 5px;
+    }
+
+    .pickColor span{
+        height: 25px;
+        width: 25px;
+        display: inline-block;    
+        border-radius: 50%;
+        border: 1px solid white;
+        margin: 10px 7px;    
+        cursor: pointer;
+    }
+
+    button.checkRound {
+        height: 35px;
+        width: 165px;    
+        display: inline-block;
+        margin-left: 15px;
+        font-size: 20px;
+        font-family: sans-serif; 
+    }
+}
+
+.yellow {
+    background-color: yellow;    
+}
+.red {
+    background-color: red;    
+}
+.green {
+    background-color: green;    
+}
+.blue {
+    background-color: blue;    
+}
+.white {
+    background-color: white;    
+}
+.orange {
+    background-color: orange;    
+}
+.gray {
+    background-color: gray;    
+}
+.pink {
+    background-color: pink;    
+}
