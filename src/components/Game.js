@@ -65,23 +65,28 @@ const initialRounds = [{
 }];
 
 class Game extends React.Component {
-    constructor() {
-        super();
-
-        this.state = {
-            currentColor: null,
-            currentRound: 1,
-            secretCode: null,
-            selectedColor: 'yellow',
-            rounds: initialRounds,            
-        }        
+    state = {
+        currentRound: 1,
+        secretCode: null,
+        selectedColor: 'yellow',
+        rounds: initialRounds,
     }
-
+        
     handleChangeSelectedColor = (event) => {
-        document.querySelector('div.selectedColor').className = `selectedColor ${event.target.className}`; 
+        document.querySelector('div.selectedColor').className = `selectedColor ${event.target.className}`;
         this.setState({
             selectedColor: event.target.className
-        })       
+        })
+    }
+
+    handleNewGame = () => {
+        if (window.confirm('Are you sure to start a new game?')) {            
+            this.setState({
+                currentRound: 1,
+                secretCode: null,
+                rounds: initialRounds,
+            });
+        }
     }
 
     render() {
@@ -89,7 +94,7 @@ class Game extends React.Component {
             <>
                 <header>
                     <p>Secret Code</p>
-                    <button className="newGame">New Game</button>
+                    <button className="newGame" onClick={this.handleNewGame}>New Game</button>
                 </header>
                 <main>
                     <ul>
@@ -99,16 +104,16 @@ class Game extends React.Component {
                 <footer>
                     <div className="selectedColor yellow">Selected color</div>
                     <div className="pickColor">
-                        <span className="yellow" onClick = {this.handleChangeSelectedColor}></span>
-                        <span className="red" onClick = {this.handleChangeSelectedColor}></span>
-                        <span className="green"onClick = {this.handleChangeSelectedColor}></span>
-                        <span className="blue"onClick = {this.handleChangeSelectedColor}></span>
-                        <span className="white"onClick = {this.handleChangeSelectedColor}></span>
-                        <span className="orange"onClick = {this.handleChangeSelectedColor}></span>
-                        <span className="gray"onClick = {this.handleChangeSelectedColor}></span>
-                        <span className="pink"onClick = {this.handleChangeSelectedColor}></span>
+                        <span className="yellow" onClick={this.handleChangeSelectedColor}></span>
+                        <span className="red" onClick={this.handleChangeSelectedColor}></span>
+                        <span className="green" onClick={this.handleChangeSelectedColor}></span>
+                        <span className="blue" onClick={this.handleChangeSelectedColor}></span>
+                        <span className="white" onClick={this.handleChangeSelectedColor}></span>
+                        <span className="orange" onClick={this.handleChangeSelectedColor}></span>
+                        <span className="gray" onClick={this.handleChangeSelectedColor}></span>
+                        <span className="pink" onClick={this.handleChangeSelectedColor}></span>
                     </div>
-                    <button className="checkRound" onClick = {this.handleChangeSelectedColor}>Check round</button>
+                    <button className="checkRound" onClick={this.RandomSecretCode}>Check round</button>
                 </footer>
             </>
         )
