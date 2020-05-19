@@ -71,7 +71,7 @@ class Game extends React.Component {
         selectedColor: 'yellow',
         rounds: initialRounds,
     }
-    
+
     handleNewGame = () => {
         if (window.confirm('Are you sure to start a new game?')) {
             const secretCode = this.RandomSecretCode();
@@ -82,6 +82,7 @@ class Game extends React.Component {
             });
         }
     }
+
     RandomSecretCode = () => {
         const secretCode = [];
         const colors = ['yellow', 'red', 'green', 'blue', 'white', 'orange', 'gray', 'pink'];
@@ -91,7 +92,7 @@ class Game extends React.Component {
         console.log(secretCode);
         return secretCode;
     }
-    
+
     handleChangeSelectedColor = (event) => {
         document.querySelector('div.selectedColor').className = `selectedColor ${event.target.className}`;
         this.setState({
@@ -99,14 +100,17 @@ class Game extends React.Component {
         })
     }
 
-    handleNewGame = () => {
-        if (window.confirm('Are you sure to start a new game?')) {          
-            const secretCode = this.RandomSecretCode();
+    handlePickColorToCode = (event) => {        
+        if (parseInt(event.target.parentElement.dataset.round) === this.state.currentRound) {
+            const spanIndex = event.target.getAttribute('data-index');            
+            const newRounds = [...this.state.rounds];
+            newRounds[this.state.currentRound-1].playerCode[spanIndex] = this.state.selectedColor;            
             this.setState({
-                currentRound: 1,
-                secretCode: secretCode,
-                rounds: initialRounds,
-            });
+                 rounds: newRounds
+            })
+        }
+        else{
+            alert("Pick color to current round");
         }
     }
 
@@ -119,7 +123,7 @@ class Game extends React.Component {
                 </header>
                 <main>
                     <ul>
-                        {this.state.rounds.map(round => <Round key={round.id} round={round} />)}
+                        {this.state.rounds.map(round => <Round key={round.id} round={round} currentRound={this.state.currentRound} pickColorToCode={this.handlePickColorToCode} />)}
                     </ul>
                 </main>
                 <footer>
