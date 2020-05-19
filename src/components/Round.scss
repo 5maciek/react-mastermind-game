@@ -21,7 +21,7 @@ li {
         border-radius: 15px;    
         display: flex;
         justify-content: flex-end;
-        align-items: center;
+        align-items: center;        
     
         span {    
             height: 30px;
@@ -29,15 +29,20 @@ li {
             display: inline-block;    
             border-radius: 50%;
             border: 1px solid white;
-            margin: 10px 10px;    
+            margin: 10px 10px;  
+            cursor: pointer;  
         }
     
         span:last-child {       
             margin-right: 20px;
         }        
     }
+
+    div.playerRoundCode.futureRound {
+        opacity: 0.2;
+    }
     
-    .resultRoundCode{
+    div.resultRoundCode{
         width: 30%;
         margin: 15px 15px 10px 5px;
         padding: 5px;
@@ -57,8 +62,12 @@ li {
         }
     }    
 
+    div.resultRoundCode.futureRound {
+        opacity: 0.2;
+    }
+
     &:first-child {
-        margin-bottom: 10px;
+        margin-bottom: 10px;          
     }
 
     &:last-child {
