@@ -72,6 +72,16 @@ class Game extends React.Component {
         rounds: initialRounds,
     }
     
+    handleNewGame = () => {
+        if (window.confirm('Are you sure to start a new game?')) {
+            const secretCode = this.RandomSecretCode();
+            this.setState({
+                currentRound: 1,
+                secretCode: secretCode,
+                rounds: initialRounds,
+            });
+        }
+    }
     RandomSecretCode = () => {
         const secretCode = [];
         const colors = ['yellow', 'red', 'green', 'blue', 'white', 'orange', 'gray', 'pink'];
