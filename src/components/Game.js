@@ -70,7 +70,7 @@ class Game extends React.Component {
         currentRound: 1,
         secretCode: null,
         selectedColor: 'yellow',
-        rounds: initialRounds,
+            resultCode: [null, null, null, null, null],
     }
 
     handleNewGame = () => {
@@ -79,7 +79,7 @@ class Game extends React.Component {
             this.setState({
                 currentRound: 1,
                 secretCode: secretCode,
-                rounds: initialRounds,
+                    done: false
             });
         }
     }
