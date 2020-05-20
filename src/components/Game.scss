@@ -111,6 +111,11 @@ footer {
         font-family: sans-serif; 
         border-radius: 10px;
     }
+    button.checkRound:disabled {
+        background-color: rgba(200,0,0, 0.7);
+        color: slategray;
+        cursor: not-allowed;
+    }
 }
 
 .yellow {
