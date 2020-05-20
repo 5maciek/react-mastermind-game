@@ -237,6 +237,45 @@ class Game extends React.Component {
         }
     }
 
+    handleCheckCode = () => {
+        if (this.validatePlayerCode()) {
+            const resultCode = [];
+            const copyState = JSON.parse(JSON.stringify(this.state))
+            const { secretCode, rounds, currentRound } = copyState;
+            
+            const playerCode = copyState.rounds[currentRound-1].playerCode;
+            secretCode.forEach((item, index) => {
+                if (item === rounds[currentRound - 1].playerCode[index]) {
+                    resultCode.push('black');
+                    playerCode[index] = null;
+                    secretCode[index] = null;                    
+                }
+            })
+            playerCode.forEach((item,index) => {
+                if (secretCode.includes(item) && item !== null){
+                    resultCode.push('white');
+                    const indexSecretCode = secretCode.indexOf(item);                    
+                    secretCode[indexSecretCode] = null;
+                }
+            })
+
+            if (resultCode.length < 5){
+                for(let i = resultCode.length; i<5;i++){
+                    resultCode.push(null);
+                }
+            }            
+
+            const newRounds = [...this.state.rounds];
+            newRounds[this.state.currentRound - 1].resultCode = resultCode;
+            newRounds[this.state.currentRound - 1].done = true;            
+
+            this.setState(prevState => ({
+                currentRound: prevState.currentRound + 1,
+                rounds: newRounds,
+            }));
+        }
+    }
+
     validatePlayerCode = () => {        
         if (this.state.rounds[this.state.currentRound - 1].playerCode.includes(null)) {
             alert('Fill all 5 fields');
