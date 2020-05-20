@@ -70,16 +70,139 @@ class Game extends React.Component {
         currentRound: 1,
         secretCode: null,
         selectedColor: 'yellow',
+        rounds: [{
+            id: 1,
+            playerCode: [null, null, null, null, null],
             resultCode: [null, null, null, null, null],
+            done: false
+        }, {
+            id: 2,
+            playerCode: [null, null, null, null, null],
+            resultCode: [null, null, null, null, null],
+            done: false
+        }, {
+            id: 3,
+            playerCode: [null, null, null, null, null],
+            resultCode: [null, null, null, null, null],
+            done: false
+        }, {
+            id: 4,
+            playerCode: [null, null, null, null, null],
+            resultCode: [null, null, null, null, null],
+            done: false
+        }, {
+            id: 5,
+            playerCode: [null, null, null, null, null],
+            resultCode: [null, null, null, null, null],
+            done: false
+        }, {
+            id: 6,
+            playerCode: [null, null, null, null, null],
+            resultCode: [null, null, null, null, null],
+            done: false
+        }, {
+            id: 7,
+            playerCode: [null, null, null, null, null],
+            resultCode: [null, null, null, null, null],
+            done: false
+        }, {
+            id: 8,
+            playerCode: [null, null, null, null, null],
+            resultCode: [null, null, null, null, null],
+            done: false
+        }, {
+            id: 9,
+            playerCode: [null, null, null, null, null],
+            resultCode: [null, null, null, null, null],
+            done: false
+        }, {
+            id: 10,
+            playerCode: [null, null, null, null, null],
+            resultCode: [null, null, null, null, null],
+            done: false
+        }, {
+            id: 11,
+            playerCode: [null, null, null, null, null],
+            resultCode: [null, null, null, null, null],
+            done: false
+        }, {
+            id: 12,
+            playerCode: [null, null, null, null, null],
+            resultCode: [null, null, null, null, null],
+            done: false
+        }],
     }
 
-    handleNewGame = () => {
+    handleNewGame = () => {        
         if (window.confirm('Are you sure to start a new game?')) {
-            const secretCode = this.RandomSecretCode();
+            const secretCode = this.RandomSecretCode();            
+            console.log(secretCode);
+            document.querySelector('button.newGame').classList.remove('firstOpen');
             this.setState({
+                disabled: false,
                 currentRound: 1,
                 secretCode: secretCode,
+                rounds: [{
+                    id: 1,
+                    playerCode: [null, null, null, null, null],
+                    resultCode: [null, null, null, null, null],
                     done: false
+                }, {
+                    id: 2,
+                    playerCode: [null, null, null, null, null],
+                    resultCode: [null, null, null, null, null],
+                    done: false
+                }, {
+                    id: 3,
+                    playerCode: [null, null, null, null, null],
+                    resultCode: [null, null, null, null, null],
+                    done: false
+                }, {
+                    id: 4,
+                    playerCode: [null, null, null, null, null],
+                    resultCode: [null, null, null, null, null],
+                    done: false
+                }, {
+                    id: 5,
+                    playerCode: [null, null, null, null, null],
+                    resultCode: [null, null, null, null, null],
+                    done: false
+                }, {
+                    id: 6,
+                    playerCode: [null, null, null, null, null],
+                    resultCode: [null, null, null, null, null],
+                    done: false
+                }, {
+                    id: 7,
+                    playerCode: [null, null, null, null, null],
+                    resultCode: [null, null, null, null, null],
+                    done: false
+                }, {
+                    id: 8,
+                    playerCode: [null, null, null, null, null],
+                    resultCode: [null, null, null, null, null],
+                    done: false
+                }, {
+                    id: 9,
+                    playerCode: [null, null, null, null, null],
+                    resultCode: [null, null, null, null, null],
+                    done: false
+                }, {
+                    id: 10,
+                    playerCode: [null, null, null, null, null],
+                    resultCode: [null, null, null, null, null],
+                    done: false
+                }, {
+                    id: 11,
+                    playerCode: [null, null, null, null, null],
+                    resultCode: [null, null, null, null, null],
+                    done: false
+                }, {
+                    id: 12,
+                    playerCode: [null, null, null, null, null],
+                    resultCode: [null, null, null, null, null],
+                    done: false
+                }]
             });
         }
     }
