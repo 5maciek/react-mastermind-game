@@ -211,9 +211,8 @@ class Game extends React.Component {
         const secretCode = [];
         const colors = ['yellow', 'red', 'green', 'blue', 'white', 'orange', 'gray', 'pink'];
         for (let i = 0; i < 5; i++) {
-            secretCode.push(colors[Math.floor(Math.random() * 5)]);
-        }
-        console.log(secretCode);
+            secretCode.push(colors[Math.floor(Math.random() * 8)]);
+        }        
         return secretCode;
     }
 
