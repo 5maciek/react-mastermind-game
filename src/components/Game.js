@@ -114,6 +114,14 @@ class Game extends React.Component {
         }
     }
 
+    validatePlayerCode = () => {
+        console.log(this.state.rounds[this.state.currentRound - 1].playerCode);
+        if (this.state.rounds[this.state.currentRound - 1].playerCode.includes(null)){
+            alert('Fill all 5 fields');
+            return false;
+        }
+        return true;
+    }
     render() {
         return (
             <>
