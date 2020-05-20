@@ -269,12 +269,22 @@ class Game extends React.Component {
 
             const newRounds = [...this.state.rounds];
             newRounds[this.state.currentRound - 1].resultCode = resultCode;
-            newRounds[this.state.currentRound - 1].done = true;            
-
-            this.setState(prevState => ({
-                currentRound: prevState.currentRound + 1,
-                rounds: newRounds,
-            }));
+            newRounds[this.state.currentRound - 1].done = true;
+            let success = false;
+            if (resultCode.every(item => item === "black")) {
+                success = true;
+                alert('Congratulations! You decript the code');
+                this.setState(prevState => ({
+                    success,
+                    rounds: newRounds,
+                }));
+            } else {
+                this.setState(prevState => ({
+                    success,
+                    currentRound: prevState.currentRound + 1,
+                    rounds: newRounds,
+                }));
+            }
         }
     }
 
