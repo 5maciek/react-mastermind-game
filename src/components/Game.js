@@ -223,34 +223,34 @@ class Game extends React.Component {
         })
     }
 
-    handlePickColorToCode = (event) => {        
+    handlePickColorToCode = (event) => {
         if (parseInt(event.target.parentElement.dataset.round) === this.state.currentRound) {
-            const spanIndex = event.target.getAttribute('data-index');            
+            const spanIndex = event.target.getAttribute('data-index');
             const newRounds = [...this.state.rounds];
-            newRounds[this.state.currentRound-1].playerCode[spanIndex] = this.state.selectedColor;            
+            newRounds[this.state.currentRound - 1].playerCode[spanIndex] = this.state.selectedColor;
             this.setState({
-                 rounds: newRounds
+                rounds: newRounds
             })
         }
-        else{
+        else {
             alert("Pick color to current round");
         }
     }
 
-    validatePlayerCode = () => {
-        console.log(this.state.rounds[this.state.currentRound - 1].playerCode);
-        if (this.state.rounds[this.state.currentRound - 1].playerCode.includes(null)){
+    validatePlayerCode = () => {        
+        if (this.state.rounds[this.state.currentRound - 1].playerCode.includes(null)) {
             alert('Fill all 5 fields');
             return false;
         }
         return true;
     }
+
     render() {
         return (
             <>
                 <header>
                     <p>Secret Code</p>
-                    <button className="newGame" onClick={this.handleNewGame}>New Game</button>
+                    <button className="newGame firstOpen" onClick={this.handleNewGame}>New Game</button>
                 </header>
                 <main>
                     <ul>
