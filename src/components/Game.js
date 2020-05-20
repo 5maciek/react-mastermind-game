@@ -67,7 +67,7 @@ const initialRounds = [{
 class Game extends React.Component {
     state = {
         disabled: true,
-        currentRound: 1,
+        currentRound: 0,
         secretCode: null,
         selectedColor: 'yellow',
         rounds: [{
