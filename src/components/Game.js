@@ -67,6 +67,7 @@ const initialRounds = [{
 class Game extends React.Component {
     state = {
         disabled: true,
+        success: false,
         currentRound: 0,
         secretCode: null,
         selectedColor: 'yellow',
@@ -133,12 +134,13 @@ class Game extends React.Component {
         }],
     }
 
-    handleNewGame = () => {        
+    handleNewGame = () => {
         if (window.confirm('Are you sure to start a new game?')) {
-            const secretCode = this.RandomSecretCode();            
+            const secretCode = this.RandomSecretCode();
             console.log(secretCode);
             document.querySelector('button.newGame').classList.remove('firstOpen');
             this.setState({
+                success: false,
                 disabled: false,
                 currentRound: 1,
                 secretCode: secretCode,
@@ -212,7 +214,7 @@ class Game extends React.Component {
         const colors = ['yellow', 'red', 'green', 'blue', 'white', 'orange', 'gray', 'pink'];
         for (let i = 0; i < 5; i++) {
             secretCode.push(colors[Math.floor(Math.random() * 8)]);
-        }        
+        }
         return secretCode;
     }
 
@@ -242,28 +244,28 @@ class Game extends React.Component {
             const resultCode = [];
             const copyState = JSON.parse(JSON.stringify(this.state))
             const { secretCode, rounds, currentRound } = copyState;
-            
-            const playerCode = copyState.rounds[currentRound-1].playerCode;
+            const playerCode = copyState.rounds[currentRound - 1].playerCode;
+
             secretCode.forEach((item, index) => {
                 if (item === rounds[currentRound - 1].playerCode[index]) {
                     resultCode.push('black');
                     playerCode[index] = null;
-                    secretCode[index] = null;                    
+                    secretCode[index] = null;
                 }
             })
-            playerCode.forEach((item,index) => {
-                if (secretCode.includes(item) && item !== null){
+            playerCode.forEach((item, index) => {
+                if (secretCode.includes(item) && item !== null) {
                     resultCode.push('white');
-                    const indexSecretCode = secretCode.indexOf(item);                    
+                    const indexSecretCode = secretCode.indexOf(item);
                     secretCode[indexSecretCode] = null;
                 }
             })
 
-            if (resultCode.length < 5){
-                for(let i = resultCode.length; i<5;i++){
+            if (resultCode.length < 5) {
+                for (let i = resultCode.length; i < 5; i++) {
                     resultCode.push(null);
                 }
-            }            
+            }
 
             const newRounds = [...this.state.rounds];
             newRounds[this.state.currentRound - 1].resultCode = resultCode;
@@ -276,7 +278,7 @@ class Game extends React.Component {
         }
     }
 
-    validatePlayerCode = () => {        
+    validatePlayerCode = () => {
         if (this.state.rounds[this.state.currentRound - 1].playerCode.includes(null)) {
             alert('Fill all 5 fields');
             return false;
@@ -288,7 +290,9 @@ class Game extends React.Component {
         return (
             <>
                 <header>
-                    <p>Secret Code</p>
+                    {this.state.success ? <div className="secretCodeShow">
+                        {this.state.secretCode.map((item, index) => <span key={index} data-index={index} className={item}></span>)}
+                    </div> : <p>Secret Code</p>}
                     <button className="newGame firstOpen" onClick={this.handleNewGame}>New Game</button>
                 </header>
                 <main>
