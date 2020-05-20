@@ -6,8 +6,7 @@ function Round(props) {
     let futureRoundClass = false;        
     if (id !== props.currentRound && done === false){
         futureRoundClass = true;
-    }
-    //onsole.log(props.pickColorToCode);
+    }   
 
     return (
         <li className="round" data-round={id}>
@@ -21,11 +20,12 @@ function Round(props) {
                 <span data-index="4" onClick={props.pickColorToCode}></span> */}
             </div>
             <div className = { futureRoundClass ? "resultRoundCode futureRound" : "resultRoundCode"} data-round={id}>
+                {resultCode.map((item, index) => <span key={index} data-index={index} className = {item}></span>)}
+                {/* <span></span>
                 <span></span>
                 <span></span>
                 <span></span>
-                <span></span>
-                <span></span>
+                <span></span> */}
             </div>
         </li>
     );
