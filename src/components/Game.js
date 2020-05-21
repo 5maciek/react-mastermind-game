@@ -80,7 +80,7 @@ class Game extends React.Component {
             this.setState({
                 success: false,
                 disabled: false,
-                currentRound: 0,
+                currentRound: 1,
                 secretCode: secretCode,
                 rounds: [{
                     id: 1,
