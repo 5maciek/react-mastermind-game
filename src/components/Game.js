@@ -2,68 +2,6 @@ import React from 'react'
 import Round from './Round'
 import './Game.scss'
 
-const initialRounds = [{
-    id: 1,
-    playerCode: [null, null, null, null, null],
-    resultCode: [null, null, null, null, null],
-    done: false
-}, {
-    id: 2,
-    playerCode: ['red', 'green', 'blue', 'yellow', 'red'],
-    resultCode: ['X', 'O', 'X', 'O', null],
-    done: false
-}, {
-    id: 3,
-    playerCode: [null, null, null, null, null],
-    resultCode: [null, null, null, null, null],
-    done: false
-}, {
-    id: 4,
-    playerCode: [null, null, null, null, null],
-    resultCode: [null, null, null, null, null],
-    done: false
-}, {
-    id: 5,
-    playerCode: [null, null, null, null, null],
-    resultCode: [null, null, null, null, null],
-    done: false
-}, {
-    id: 6,
-    playerCode: [null, null, null, null, null],
-    resultCode: [null, null, null, null, null],
-    done: false
-}, {
-    id: 7,
-    playerCode: [null, null, null, null, null],
-    resultCode: [null, null, null, null, null],
-    done: false
-}, {
-    id: 8,
-    playerCode: [null, null, null, null, null],
-    resultCode: [null, null, null, null, null],
-    done: false
-}, {
-    id: 9,
-    playerCode: [null, null, null, null, null],
-    resultCode: [null, null, null, null, null],
-    done: false
-}, {
-    id: 10,
-    playerCode: [null, null, null, null, null],
-    resultCode: [null, null, null, null, null],
-    done: false
-}, {
-    id: 11,
-    playerCode: [null, null, null, null, null],
-    resultCode: [null, null, null, null, null],
-    done: false
-}, {
-    id: 12,
-    playerCode: [null, null, null, null, null],
-    resultCode: [null, null, null, null, null],
-    done: false
-}];
-
 class Game extends React.Component {
     state = {
         disabled: true,
@@ -225,7 +163,7 @@ class Game extends React.Component {
         })
     }
 
-    handlePickColorToCode = (event) => {
+    handleChangeOneColorInPlayerCode = (event) => {
         if (parseInt(event.target.parentElement.dataset.round) === this.state.currentRound) {
             const spanIndex = event.target.getAttribute('data-index');
             const newRounds = [...this.state.rounds];
@@ -239,7 +177,7 @@ class Game extends React.Component {
         }
     }
 
-    handleCheckCode = () => {
+    handleCheckCode = () => {        
         if (this.validatePlayerCode()) {
             const resultCode = [];
             const copyState = JSON.parse(JSON.stringify(this.state))
@@ -307,7 +245,7 @@ class Game extends React.Component {
                 </header>
                 <main>
                     <ul>
-                        {this.state.rounds.map(round => <Round key={round.id} round={round} currentRound={this.state.currentRound} pickColorToCode={this.handlePickColorToCode} />)}
+                        {this.state.rounds.map(round => <Round key={round.id} round={round} currentRound={this.state.currentRound} pickColorToCode={this.handleChangeOneColorInPlayerCode} />)}
                     </ul>
                 </main>
                 <footer>
