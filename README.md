@@ -12,5 +12,10 @@ If you want to run this game locally, enter the following commands in console:
 `npm start`
 
 ## Status
-Project is _in progress_.
+Project is _testing_.
+
+
+## Demo
+[Demo](https://5maciek.github.io/react-mastermind-game)
+
 
