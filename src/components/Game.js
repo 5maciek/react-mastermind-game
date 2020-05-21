@@ -213,6 +213,7 @@ class Game extends React.Component {
                 success = true;
                 alert('Congratulations! You decript the code');
                 this.setState(prevState => ({
+                    disabled: true,
                     success,
                     rounds: newRounds,
                 }));
