@@ -80,7 +80,7 @@ class Game extends React.Component {
             this.setState({
                 success: false,
                 disabled: false,
-                currentRound: 1,
+                currentRound: 12,
                 secretCode: secretCode,
                 rounds: [{
                     id: 1,
@@ -177,7 +177,7 @@ class Game extends React.Component {
         }
     }
 
-    handleCheckCode = () => {        
+    handleCheckCode = () => {
         if (this.validatePlayerCode()) {
             const resultCode = [];
             const copyState = JSON.parse(JSON.stringify(this.state))
@@ -227,9 +227,15 @@ class Game extends React.Component {
     }
 
     validatePlayerCode = () => {
-        if (this.state.rounds[this.state.currentRound - 1].playerCode.includes(null)) {
-            alert('Fill all 5 fields');
-            return false;
+        if (this.state.currentRound > 12) {
+            alert('Game is over, try again!');
+            return false
+        }
+        else {
+            if (this.state.rounds[this.state.currentRound - 1].playerCode.includes(null)) {
+                alert('Fill all 5 fields');
+                return false;
+            }
         }
         return true;
     }
