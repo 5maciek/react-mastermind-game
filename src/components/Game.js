@@ -266,7 +266,7 @@ class Game extends React.Component {
                         <span className="gray" onClick={this.handleChangeSelectedColor}></span>
                         <span className="pink" onClick={this.handleChangeSelectedColor}></span>
                     </div>
-                    <button disabled={this.state.disabled} className="checkRound" onClick={this.handleCheckCode}>Check round</button>
+                    <button disabled={this.state.disabled} className="checkRound" onClick={this.handleCheckCode}>Check code</button>
                 </footer>
             </>
         )
